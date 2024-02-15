@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Referencial SQL</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flexMine">
+        <a href="index.html"><div selected="true">Base de Dados</div></a>
+        <a href="table.html"><div>Tabelas</div></a>
+    </div>
+    <div class="card flex flex-row">
+        <div class="grow flex items-center">
+            <div class="flex flex-col w-full h-full">
+                <div class="body grow ml-10 mt-10 space-y-3">
+                    <div class="flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Ação</label>
+                        <select id="actionDropdown" onchange="setAction(this.value)" class="dropdown">
+                            <option value="any">Nenhum</option>
+                            <option value="create">Criar</option>
+                            <option value="delete">Eliminar</option>
+                        </select>
+                    </div>
+                    <div id="nameInput" class="flex flex-col space-y-2 hidden w-[50%]">
+                        <label id="nameText" class="ml-[20px]">Nome da Base de Dados</label>
+                        <input class="dropdown" oninput="ChangeDataBaseName(this.value)" type="text">
+                    </div>
+                    <div id="databaseInput" class="flex flex-col space-y-2 hidden w-[50%]">
+                        <label id="nameText" class="ml-[20px]">Nome da Base de Dados</label>
+                        <select id="databaseDropdown" onchange="ChangeDataBaseName(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                </div>
+                <div class="h-[20%] flex flex-col">
+                    <div class="card h-[50%] centered">
+                        <input id="queryInput" disabled class="bg-transparent outline-0 text-center w-[95%]" value="">
+                    </div>
+                    <button id="submit" disabled onclick="ExecuteQuery()"
+                        class="card h-[50%] centered button">EXECUTAR</button>
+                </div>
+            </div>
+        </div>
+        <div class="basis-1/2 flex items-center">
+            <div id="bdBody" class="card output p-5 gap-[5%] flex justify-center flex-wrap overflow-auto">
+                <!--
+                    <div class="bd">
+                        <h1 class="my-3 ml-3">Base de Dados 1</h1>
+                        <div id="tabelasBody"
+                            class="p-5 flex gap-5 justify-center items-center flex-wrap overflow-auto">
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                            <div class="tabela flex-none">
+                                <p class="text-center my-3">Nome da Tabela</p>
+                                <div class="w-full flex justify-center">
+                                    <div class="w-[75%] h-[1px] bg-neutral-700"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <script src="./database.js"></script>
+</body>
+
+</html>
