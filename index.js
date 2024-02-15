@@ -80,7 +80,7 @@ function SetField(value) {
     table2Input.style.display = "none"
     fields2Input.style.display = "none"
     if (value != "any") {
-        table2Input.style.display = "block"
+        if (action != "delete") table2Input.style.display = "block"
     } else {
         primaryTable = ""
         primaryField = ""
@@ -103,7 +103,7 @@ function RefreshQuery() {
             if (foreignTable != "") {
                 query += foreignTable
                 if (foreignField != "") {
-                    query += " ADD CONSTRAINT FK_" + foreignTable + primaryTable + " FOREIGN KEY(" + foreignField + ")"
+                    query += " ADD CONSTRAINT FK_" + foreignTable + foreignField + " FOREIGN KEY(" + foreignField + ")"
                     if (primaryTable != "") {
                         query += " REFERENCES " + primaryTable
                         if (primaryField != "") {
@@ -111,6 +111,15 @@ function RefreshQuery() {
                             document.getElementById("submit").removeAttribute("disabled")
                         }
                     }
+                }
+            }
+        } else if (action == "delete") {
+            query = "ALTER TABLE "
+            if (foreignTable != "") {
+                query += foreignTable
+                if (foreignField != "") {
+                    query += " DROP FOREIGN KEY FK_" + foreignTable + foreignField
+                    document.getElementById("submit").removeAttribute("disabled")
                 }
             }
         }
@@ -139,7 +148,7 @@ async function ExecuteQuery() {
 function RefreshFields() {
     let data = '<option value="any">Nenhum</option>'
     for (let i = 0; i < BDData[foreignTable].length; i++) {
-        if (BDData[foreignTable][i].constraints != "PRIMARY KEY" && !BDData[foreignTable][i].foreignKeys) data += '<option value="' + BDData[foreignTable][i].name + '">' + BDData[foreignTable][i].name + '</option>'
+        if (BDData[foreignTable][i].constraints != "PRIMARY KEY" && (!BDData[foreignTable][i].foreignKeys) || action == "delete") data += '<option value="' + BDData[foreignTable][i].name + '">' + BDData[foreignTable][i].name + '</option>'
     }
     fieldsDropdown.innerHTML = data
 }
