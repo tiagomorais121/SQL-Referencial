@@ -120,7 +120,6 @@ function RefreshQuery() {
 
 async function ExecuteQuery() {
     let result = await fetch("request.php?query=" + query)
-    console.log(await result.text())
     actionInput.style.display = "none"
     tableInput.style.display = "none"
     table2Input.style.display = "none"

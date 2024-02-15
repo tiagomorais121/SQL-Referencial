@@ -120,7 +120,7 @@ function RefreshQuery() {
                             const originalData = BDData[table].filter((fields) => fields.name == field)[0]
                             const size = Removed[field]["size"] ?? (originalData.size ?? 10)
                             const type = Removed[field]["type"] ?? originalData.type
-                            query += " ALTER COLUMN " + fieldName + " " + type + "(" + size + "),"
+                            query += " MODIFY COLUMN " + fieldName + " " + type + "(" + size + "),"
                         }
                     }
                 }
@@ -136,7 +136,7 @@ function RefreshQuery() {
                 const field = Add[dataField]
                 query += " ADD " + field.name + " " + field.type + "(" + field.size + ")" + " " + field.constraints + (field.default != "" || field.increment ? (field.increment ? " AUTO_INCREMENT" : " DEFAULT '" + field.default + "'") : "") + ", "
             }
-            query = query.substring(0, query.length - 2) + ";"
+            query = query.substring(0, query.length - 1) + ";"
         }
     }
     queryInput.value = query
@@ -210,6 +210,7 @@ function RemoveData(index) {
 
 async function ExecuteQuery() {
     let result = await fetch("request.php?query=" + query)
+    console.log(await result.text())
     actionDropdown.value = "any"
     table = ""
     tableName = ""
