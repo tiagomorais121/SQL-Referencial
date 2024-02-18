@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Referencial SQL</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flexMine">
+        <!--
+            <a href="index.html">
+                <div>Base de Dados</div>
+            </a>
+        -->
+        <a href="index.html">
+            <div>Tabelas</div>
+        </a>
+        <a href="index2.html">
+            <div selected="true">Indíces</div>
+        </a>
+        <a href="add.html">
+            <div>Adicionar</div>
+        </a>
+        <a href="view.html">
+            <div>Visualizar</div>
+        </a>
+        <a href="info.html">
+            <div>Informação</div>
+        </a>
+    </div>
+    <div class="card flex flex-row">
+        <div class="grow flex items-center">
+            <div class="flex flex-col w-full h-full">
+                <div class="body grow ml-10 mt-10 space-y-3">
+                    <div class="flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Tipo</label>
+                        <select id="typeDropdown" onchange="SetType(this.value)" class="dropdown">
+                            <option value="any">Nenhum</option>
+                            <option value="foreignKey">Chave Estrangeiras</option>
+                            <option value="index">Indíces</option>
+                        </select>
+                    </div>
+                    <div id="actionInput" class="hidden flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Ação</label>
+                        <select id="actionDropdown" onchange="SetAction(this.value)" class="dropdown">
+                            <option value="any">Nenhum</option>
+                            <option value="create">Adicionar</option>
+                            <option value="delete">Remover</option>
+                        </select>
+                    </div>
+                    <div id="tableInput" class="hidden flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Tabela</label>
+                        <select id="tableDropdown" onchange="SetTable(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                    <div id="fieldsInput" class="hidden flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Campos</label>
+                        <select id="fieldsDropdown" onchange="SetField(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                    <div id="checkBoxInput" class="hidden flex flex-row ml-3 gap-3 w-[50%]">
+                        <input type="checkbox" id="uniqueCheckBox" onchange="SetUnique(this.checked)">
+                        <label>Unico</label>
+                        </select>
+                    </div>
+                    <div id="table2Input" class="hidden flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Tabela com Chave Primária</label>
+                        <select id="table2Dropdown" onchange="SetTable2(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                    <div id="fields2Input" class="hidden flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Campos Primários</label>
+                        <select id="fields2Dropdown" onchange="SetField2(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                </div>
+                <div class="h-[20%] flex flex-col">
+                    <div class="card h-[50%] centered">
+                        <input id="queryInput" disabled class="bg-transparent outline-0 text-center w-[95%]" value="">
+                    </div>
+                    <button id="submit" disabled onclick="ExecuteQuery()"
+                        class="card h-[50%] centered button">EXECUTAR</button>
+                </div>
+            </div>
+        </div>
+        <div class="basis-1/2 flex items-center">
+            <div id="bdBody" class="card output p-5 gap-[5%] flex justify-center flex-wrap overflow-auto">
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

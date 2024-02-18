@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Referencial SQL</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flexMine">
+        <a href="index.html">
+            <div>Tabelas</div>
+        </a>
+        <a href="index2.html">
+            <div>Indíces</div>
+        </a>
+        <a href="add.html">
+            <div>Adicionar</div>
+        </a>
+        <a href="view.html">
+            <div selected="true">Visualizar</div>
+        </a>
+        <a href="info.html">
+            <div>Informação</div>
+        </a>
+    </div>
+    <div class="card flex flex-row">
+        <div class="grow flex items-center">
+            <div class="flex flex-col w-full h-full">
+                <div class="body grow ml-10 mt-10 space-y-3">
+                    <div class="flex flex-col space-y-2 w-[50%]">
+                        <label class="ml-[20px]">Tabelas</label>
+                        <select id="tableDropdown" onchange="SetTable(this.value)" class="dropdown">
+                        </select>
+                    </div>
+                    <div id="fieldInput" class="flex flex-col space-y-2 w-[50%] hidden">
+                        <div class="flex flex-row gap-5">
+                            <label class="ml-[20px]">Campos</label>
+                            <div class="flex flex-row gap-1">
+                                <input id="distinct" onchange="SetDistinct(this.checked)" type="checkbox">
+                                <label for="distinct">Distinto</label>
+                            </div>
+                        </div>
+                        <fieldset id="fieldDropdown" class="ml-5"></fieldset>
+                    </div>
+                    <div id="whereInput" class="flex flex-col space-y-2 hidden">
+                        <label class="ml-[20px]">Condições</label>
+                        <div class="flex flex-row gap-3 w-[30%]">
+                            <select id="fieldsDropdown" class="dropdown h-min w-[300px]"></select>
+                            <button class="card h-max button" onclick="AddField()">Adicionar</button>
+                        </div>
+                        <div class="flex flex-col space-y-2 min-h-[50px] max-h-[120px] overflow-auto"
+                            id="whereDropdown">
+
+                        </div>
+                    </div>
+                    <div id="orderInput" class="flex flex-col space-y-2 w-[50%] hidden">
+                        <label class="ml-[20px]">Ordenar</label>
+                        <div class="flex flex-row gap-3">
+                            <select id="fieldDropdown2" onchange="SetOrderField(this.value)" class="dropdown"></select>
+                            <select class="dropdown" onchange="SetOrderType(this.value)">
+                                <option value="ASC">ASC</option>
+                                <option value="DESC">DESC</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[20%] flex flex-col">
+                    <div class="card h-[50%] centered">
+                        <input id="queryInput" disabled class="bg-transparent outline-0 text-center w-[95%]" value="">
+                    </div>
+                    <button id="submit" disabled onclick="ExecuteQuery()"
+                        class="card h-[50%] centered button">EXECUTAR</button>
+                </div>
+            </div>
+        </div>
+        <div class="basis-1/2 flex items-center">
+            <table id="bdBody" class="card output p-5 gap-[5%] flex justify-center flex-wrap overflow-auto">
+
+            </table>
+        </div>
+    </div>
+    <script src="./view.js"></script>
+</body>
+
+</html>

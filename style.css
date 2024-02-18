@@ -1,0 +1,160 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.flexMine {
+    margin: 10px auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(64, 64, 64);
+    border-radius: 10px;
+    width: fit-content;
+    height: 45px;
+}
+
+.flexMine div {
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
+}
+
+.flexMine div[selected=true] {
+    background-color: rgb(29, 29, 29);
+    padding: 5px 0px;
+    border-radius: 10px;
+}
+
+.flexInfo {
+    margin: 0 auto;
+}
+
+.flexInfo h1 {
+    font-weight: 800;
+    font-size: 18pt;
+}
+
+.titleSpan {
+    font-weight: 800;
+}
+
+.flexInfo h3 {
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.flexInfo p {
+    white-space: pre;
+}
+
+.card {
+    margin: 15px auto;
+    width: 90%;
+    height: 800px;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+}
+
+.cardTemplate {
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+}
+
+.output {
+    margin-right: 20px;
+    height: 95%;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    cursor: pointer;
+    margin-top: 0px;
+    font-weight: 1000;
+    background-color: rgb(64, 64, 64);
+}
+
+.dropdown {
+    background-color: rgb(29, 29, 29);
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+    padding: 5px 0px 5px 20px;
+    width: 100%;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.body input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+}
+
+.padding {
+    padding: 2px 5px;
+}
+
+.button:hover {
+    background-color: rgb(116, 116, 116);
+}
+
+.tabela {
+    width: 45%;
+    height: 300px;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+}
+
+.bd {
+    width: 90%;
+    height: fit-content;
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td,
+table th {
+    padding: 8px;
+}
+
+table tr td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: transparent;
+    color: white;
+}
+
+.flexInfo {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.flexInfo::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

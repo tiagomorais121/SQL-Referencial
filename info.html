@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Referencial SQL</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flexMine">
+        <a href="index.html" >
+            <div>Tabelas</div>
+        </a>
+        <a href="index2.html" >
+            <div>Indíces</div>
+        </a>
+        <a href="add.html" >
+            <div>Adicionar</div>
+        </a>
+        <a href="view.html">
+            <div>Visualizar</div>
+        </a>
+        <a href="info.html">
+            <div selected="true">Informação</div>
+        </a>
+    </div>
+    <div class="card flex flex-col">
+        <div class="flexMine h-[50px]">
+            <a href="info.html">
+                <div id="info">Tabelas</div>
+            </a>
+            <a href="info/DataType.html" class="">
+                <div id="DataType">Tipo de Dados</div>
+            </a>
+            <a href="info/constraints.html" class="">
+                <div id="constraints">Restrições</div>
+            </a>
+            <a href="info/operators.html" class="">
+                <div id="operators">Operadores</div>
+            </a>
+            <a href="info/action.html" class="">
+                <div id="action">Ações</div>
+            </a>
+            <a href="info/joins.html" class="">
+                <div id="joins">Joins</div>
+            </a>
+            <a href="info/indexs.html" class="">
+                <div id="indexs">Índices</div>
+            </a>
+            <a href="info/views.html" class="flex justify-center ">
+                <div id="views">Views</div>
+            </a>
+        </div>
+        <div class="grid grid-cols-3 gap-4 h-[90%] w-[90%] flexInfo overflow-auto" id="text">
+        </div>
+    </div>
+    <script src="./info.js"></script>
+</body>
+
+</html>

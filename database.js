@@ -2,7 +2,7 @@ let query = ""
 let action = ""
 let database = ""
 
-let prefix = "12itm10_"
+let prefix = ""
 
 let BDs = {}
 
