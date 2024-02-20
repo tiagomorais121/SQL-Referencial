@@ -52,17 +52,17 @@ let text = {
             subtitle: "Tipo de dados numéricos",
             info: `
             <span class="titleSpan">NOT NULL</span>:
-                Impede que uma coluna aceite valores nulos.
+                <p class="twolines">Impede que uma coluna aceite valores nulos.</p>
             <span class="titleSpan">UNIQUE</span>:
-                Impede que uma coluna aceite valores duplicados.
+                <p class="twolines">Impede que uma coluna aceite valores duplicados.</p>
             <span class="titleSpan">PRIMARY KEY</span>:
-                Combina as restrições NOT NULL e UNIQUE.
+                <p class="twolines">Combina as restrições NOT NULL e UNIQUE.</p>
             <span class="titleSpan">FOREIGN KEY</span>:
-                Impede que uma coluna aceite valores que não existam numa outra tabela.
+                <p class="twolines">Impede que uma coluna aceite valores que não existam numa outra tabela.</p>
             <span class="titleSpan">CHECK</span>:
-                Impede que uma coluna aceite valores que não atendam a uma condição específica.
+                <p class="twolines">Impede que uma coluna aceite valores que não atendam a uma condição específica.</p>
             <span class="titleSpan">DEFAULT</span>:
-                Define um valor padrão para uma coluna (em novos registos).
+                <p class="twolines">Define um valor padrão para uma coluna (em novos registos).</p>
             `
         },
         {
@@ -414,9 +414,9 @@ let text = {
             title: "Operadores IN, BETWEEN e IS NULL",
             subtitle: "",
             info: `
-            <span class="titleSpan">IN</span> - Verifica se o valor está dentro de uma lista de valores.
-            <span class="titleSpan">BETWEEN</span> - Verifica se o valor está dentro de um intervalo (inclusivo).
-            <span class="titleSpan">IS NULL</span> - Verifica se o valor é nulo ou não nulo.
+            <p class="twolines"><span class="titleSpan">IN</span> - Verifica se o valor está dentro de uma lista de valores.</p>
+            <p class="twolines"><span class="titleSpan">BETWEEN</span> - Verifica se o valor está dentro de um intervalo (inclusivo).</p>
+            <p class="twolines"><span class="titleSpan">IS NULL</span> - Verifica se o valor é nulo ou não nulo.</p>
             `
         },
     ],
@@ -474,19 +474,37 @@ let data = ""
 
 for (let i = 0; i < text[page].length; i++) {
     data += `
-    <div class="infoItem">
-        <h1>` + text[page][i].title + `</h1>
-        <h2>` + text[page][i].subtitle + `</h2>
-        ` + (text[page][i].syntax ? `
-        <h3>Sintax:</h3>
-        <code>` + text[page][i].syntax + `</code>
-        ` : (text[page][i].info ? `
-        <h3>Info:</h3>
-        <p>` + text[page][i].info + `</p>
-        ` : "")) + `
-        <br>
-    </div>
+        <div>
+            <button class="accordion">` + text[page][i].title + `</button>
+            <div class="panel">
+                <h1>` + text[page][i].title + `</h1>
+                <h2>` + text[page][i].subtitle + `</h2>
+                ` + (text[page][i].syntax ? `
+                    <h3>Sintax:</h3>
+                    <code>` + text[page][i].syntax + `</code>
+                    ` : (text[page][i].info ? `
+                    <h3>Info:</h3>
+                    <div class="texto">` + text[page][i].info + `</div>
+                    ` : "")) + `
+                <br>
+            </div>
+        </div>
     `
 }
 
 document.getElementById("text").innerHTML = data
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
